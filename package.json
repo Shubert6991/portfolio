@@ -1,29 +1,28 @@
 {
   "name": "portfolio",
   "version": "2.0.0",
-  "private": true,
+  "description": "Shubert's Portfolio",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start",
+    "prettier": "prettier -write .",
     "lint": "next lint"
   },
+  "keywords": [],
+  "author": "Shubert Alonzo",
+  "license": "MIT",
   "dependencies": {
-    "@chakra-ui/react": "^3.6.0",
+    "@chakra-ui/react": "^3.8.1",
     "@emotion/react": "^11.14.0",
-    "next": "15.1.6",
-    "next-themes": "^0.4.4",
+    "@emotion/styled": "^11.14.0",
+    "framer-motion": "^12.4.7",
+    "next": "^15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.6",
-    "typescript": "^5"
+    "eslint": "^9.20.1",
+    "eslint-config-next": "^15.1.7",
+    "prettier": "^3.5.1"
   }
 }
