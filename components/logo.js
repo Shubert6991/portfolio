@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Text, useColorModeValue } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 import styled from '@emotion/styled'
+//import { useTheme } from 'next-themes'
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -18,23 +19,23 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
-  const footPrintImg = `/images/footprint${useColorModeValue('', '-dark')}.png`
+  //const { theme } = useTheme()
+  //const footPrintImg = `/images/footprint${theme === 'light' ? '' : '-dark'}.png`
+  const footPrintImg = '/images/spaceman.jpg'
 
   return (
     <Link href="/">
-      <a>
-        <LogoBox>
-          <Image src={footPrintImg} width={20} height={20} alt="logo" />
-        </LogoBox>
+      <LogoBox>
+        <Image src={footPrintImg} width={20} height={20} alt="logo" />
         <Text
-          color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+          color={{ base: 'gray.800', _dark: 'whiteAlpha.900' }}
           fontFamily="M PLUS Rounded 1c"
           fontWeight="bold"
           ml={3}
         >
           Shubert Alonzo
         </Text>
-      </a>
+      </LogoBox>
     </Link>
   )
 }

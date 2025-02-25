@@ -1,4 +1,4 @@
-import { ColorModeProvider } from '@chakra-ui/color-mode'
+import { ColorModeProvider } from "@/components/ui/color-mode"
 import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 
 import Layout from '../components/layouts/main'
