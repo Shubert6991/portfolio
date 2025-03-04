@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Text } from '@chakra-ui/react'
 import styled from '@emotion/styled'
-//import { useTheme } from 'next-themes'
+import { useTheme } from 'next-themes'
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -19,14 +19,13 @@ const LogoBox = styled.span`
 `
 
 const Logo = () => {
-  //const { theme } = useTheme()
-  //const footPrintImg = `/images/footprint${theme === 'light' ? '' : '-dark'}.png`
-  const footPrintImg = '/images/spaceman.jpg'
+  const { resolvedTheme } = useTheme()
+  const logoImg = `/images/placeholder${resolvedTheme === 'light' ? '' : '-dark'}.jpg`
 
   return (
     <Link href="/">
       <LogoBox>
-        <Image src={footPrintImg} width={20} height={20} alt="logo" />
+        <Image src={logoImg} width={20} height={20} alt="logo" />
         <Text
           color={{ base: 'gray.800', _dark: 'whiteAlpha.900' }}
           fontFamily="M PLUS Rounded 1c"

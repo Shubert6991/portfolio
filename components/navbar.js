@@ -11,19 +11,24 @@ import {
   MenuItem,
   MenuList,
   MenuButton,
-  IconButton
+  IconButton,
+  Icon,
+  MenuRoot,
+  MenuTrigger,
+  MenuContent
 } from '@chakra-ui/react'
 import { useTheme } from 'next-themes'
 
+import { GiHamburgerMenu } from 'react-icons/gi'
+
 const LinkItem = ({ href, path, children }) => {
   const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
   return (
     <NextLink href={href}>
       <Link
         p={2}
         bg={{ _active: 'glassTeal' }}
-        color={{ base: inactiveColor, _active: '#202023' }}
+        color={{ base: 'gray200', _dark: 'whiteAlpha.900', _active: '#202023' }}
       >
         {children}
       </Link>
@@ -33,9 +38,6 @@ const LinkItem = ({ href, path, children }) => {
 
 const Navbar = props => {
   const { path } = props
-  const { theme } = useTheme()
-
-  console.log(theme)
 
   return (
     <Box
@@ -60,6 +62,42 @@ const Navbar = props => {
             <Logo />
           </Heading>
         </Flex>
+
+        <Stack
+          direction={{ base: 'column', md: 'row' }}
+          display={{ base: 'none', md: 'flex' }}
+          width={{ base: 'full', md: 'auto' }}
+          alignItems="center"
+          flexGrow={1}
+          mt={{ base: 4, md: 0 }}
+        >
+          <LinkItem href="/works" path={path}>
+            Works
+          </LinkItem>
+          <LinkItem href="/posts" path={path}>
+            Posts
+          </LinkItem>
+        </Stack>
+
+        <Box flex={1} align="right">
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
+            <MenuRoot>
+              <MenuTrigger asChild>
+                <IconButton variant="outline" aria-label="Options">
+                  <GiHamburgerMenu />
+                </IconButton>
+              </MenuTrigger>
+              <MenuContent>
+                <MenuItem value="works">
+                  <LinkItem href="/works" path={path}>
+                    Works
+                  </LinkItem>
+                </MenuItem>
+              </MenuContent>
+            </MenuRoot>
+          </Box>
+        </Box>
+
       </Container>
     </Box>
   )
